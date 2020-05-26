@@ -1,3 +1,4 @@
+// tslint:disable
 module.exports = {
   compound: [readCompound, writeCompound, sizeOfCompound],
 };
@@ -8,14 +9,14 @@ function readCompound(buffer: any, offset: any, typeArgs: any, rootNode: any) {
     size: 0,
   };
   while (true) {
-    const typ = this.read(buffer, offset, 'i8', rootNode);
+    const typ = typeArgs.read(buffer, offset, 'i8', rootNode);
     if (typ.value === 0) {
       offset += typ.size;
       results.size += typ.size;
       break;
     }
 
-    const readResults = this.read(buffer, offset, 'nbt', rootNode);
+    const readResults = typeArgs.read(buffer, offset, 'nbt', rootNode);
     offset += readResults.size;
     results.size += readResults.size;
     results.value[readResults.value.name] = {
@@ -27,9 +28,8 @@ function readCompound(buffer: any, offset: any, typeArgs: any, rootNode: any) {
 }
 
 function writeCompound(value: any, buffer: any, offset: any, typeArgs: any, rootNode: any) {
-  const self = this;
   Object.keys(value).map((key: any) => {
-    offset = self.write(
+    offset = typeArgs.write(
       {
         name: key,
         type: value[key].type,
@@ -41,18 +41,17 @@ function writeCompound(value: any, buffer: any, offset: any, typeArgs: any, root
       rootNode,
     );
   });
-  offset = this.write(0, buffer, offset, 'i8', rootNode);
+  offset = typeArgs.write(0, buffer, offset, 'i8', rootNode);
 
   return offset;
 }
 
 function sizeOfCompound(value: any, typeArgs: any, rootNode: any) {
-  const self = this;
   // tslint:disable:no-shadowed-variable
   const size = Object.keys(value).reduce((size, key) => {
     return (
       size +
-      self.sizeOf(
+      typeArgs.sizeOf(
         {
           name: key,
           type: value[key].type,
