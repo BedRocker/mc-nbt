@@ -42,5 +42,8 @@
   "homepage": "https://github.com/BedRocker/mc-nbt#readme",
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "dependencies": {
+    "protodef": "^1.7.1"
+  }
 }
