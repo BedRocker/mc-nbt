@@ -28,7 +28,7 @@ function readCompound (buffer: any, offset: any, typeArgs: any, rootNode: any) {
 
 function writeCompound (value: any, buffer: any, offset: any, typeArgs: any, rootNode: any) {
   const self = this
-  Object.keys(value).map(function (key: any) {
+  Object.keys(value).map((key: any) => {
     offset = self.write({
       name: key,
       type: value[key].type,
@@ -42,7 +42,8 @@ function writeCompound (value: any, buffer: any, offset: any, typeArgs: any, roo
 
 function sizeOfCompound (value: any, typeArgs: any, rootNode: any) {
   const self = this
-  const size = Object.keys(value).reduce(function (size, key) {
+  // tslint:disable:no-shadowed-variable
+  const size = Object.keys(value).reduce((size, key) => {
     return size + self.sizeOf({
       name: key,
       type: value[key].type,

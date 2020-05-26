@@ -6,8 +6,9 @@ fs.readFile('level.dat', function (error, data) {
     throw error
   }
 
-  nbt.parse(data, true, function (error, result) {
-    console.log(error)
+  nbt.parse(data, true, function (err, result) {
+    // tslint:disable:no-console
+    console.log(err)
     console.log(JSON.stringify(result, null, 2))
   })
 })

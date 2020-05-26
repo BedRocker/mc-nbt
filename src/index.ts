@@ -1,4 +1,4 @@
-/* tslint-disable */
+// tslint:disable:no-var-requires
 const zlib = require('zlib')
 
 const { ProtoDefCompiler } = require('protodef').Compiler
@@ -24,7 +24,7 @@ function parseUncompressed (data: any, le: any) {
   return (le ? protoLE : proto).parsePacketBuffer('nbt', data).data
 }
 
-const hasGzipHeader = function (data: any) {
+const hasGzipHeader = (data: any) => {
   let result = true
   if (data[0] !== 0x1f) result = false
   if (data[1] !== 0x8b) result = false
@@ -39,7 +39,7 @@ function parse (data: any, le: any, callback: any) {
     isLe = le
   }
   if (hasGzipHeader(data)) {
-    zlib.gunzip(data, function (error: any, uncompressed: any) {
+    zlib.gunzip(data, (error: any, uncompressed: any) => {
       if (error) {
         callback(error, data)
       } else {
@@ -54,13 +54,13 @@ function parse (data: any, le: any, callback: any) {
 function simplify (data: any) {
   function transform (value: any, type: any) {
     if (type === 'compound') {
-      return Object.keys(value).reduce(function (acc: any, key: any) {
+      return Object.keys(value).reduce((acc: any, key: any) => {
         acc[key] = simplify(value[key])
         return acc
       }, {})
     }
     if (type === 'list') {
-      return value.value.map(function (v: any) { return transform(v, value.type) })
+      return value.value.map((v: any) => { return transform(v, value.type) })
     }
     return value
   }

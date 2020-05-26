@@ -6,8 +6,9 @@ fs.readFile('bigtest.nbt.gz', function (error, data) {
     throw error
   }
 
-  nbt.parse(data, function (error, result) {
-    console.log(error)
+  nbt.parse(data, function (err, result) {
+    // tslint:disable:no-console
+    console.log(err)
     console.log(result.value.stringTest)
     console.log(result.value['nested compound test'])
     console.log(nbt.simplify(result)['nested compound test'])

@@ -28,11 +28,13 @@ module.exports = {
   Write: {
     compound: ['context', (value, buffer, offset) => {
       for (const key in value) {
-        offset = ctx.nbt({
-          name: key,
-          type: value[key].type,
-          value: value[key].value
-        }, buffer, offset)
+          if (value.hasOwnProperty(key)) {
+          offset = ctx.nbt({
+            name: key,
+            type: value[key].type,
+            value: value[key].value
+          }, buffer, offset)
+        }
       }
       offset = ctx.i8(0, buffer, offset)
       return offset
@@ -43,11 +45,13 @@ module.exports = {
     compound: ['context', (value) => {
       let size = 1
       for (const key in value) {
-        size += ctx.nbt({
-          name: key,
-          type: value[key].type,
-          value: value[key].value
-        })
+        if(value.hasOwnProperty(key)) {
+          size += ctx.nbt({
+            name: key,
+            type: value[key].type,
+            value: value[key].value
+          })
+        }
       }
       return size
     }]
