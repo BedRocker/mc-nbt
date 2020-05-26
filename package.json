@@ -1,6 +1,6 @@
 {
   "name": "@bedrocker/mc-nbt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "A parser specifically for Minecraft files, with built-in ZLib de-compression.",
   "main": "lib/index.js",
