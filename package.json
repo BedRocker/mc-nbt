@@ -1,0 +1,24 @@
+{
+  "name": "mc-nbt",
+  "version": "0.0.1",
+  "description": "A parser specifically for Minecraft files, with built-in ZLib de-compression.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/BedRocker/mc-nbt.git"
+  },
+  "keywords": [
+    "minecraft",
+    "nbt",
+    "parser"
+  ],
+  "author": "Alex Scott <alex@codetheoristdevelopments.co.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BedRocker/mc-nbt/issues"
+  },
+  "homepage": "https://github.com/BedRocker/mc-nbt#readme"
+}
