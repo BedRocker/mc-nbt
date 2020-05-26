@@ -1,5 +1,9 @@
 # Minecraft NBT Parser
-## Built with Typescript
+## Built with TypeScript
+[![NPM version](https://img.shields.io/npm/v/prismarine-nbt.svg)](http://npmjs.com/package/prismarine-nbt)
+[![Build Status](https://img.shields.io/circleci/project/PrismarineJS/prismarine-nbt/master.svg)](https://circleci.com/gh/PrismarineJS/prismarine-nbt)
+
+MC-NBT is a TypeScript parser and serializer for [NBT](http://wiki.vg/NBT) archives, for use with [Node.js](http://nodejs.org/).
 
 ### Installation
 To install into your project, simply run `npm install --save @codetheorist/mc-nbt` in the root of your project.
