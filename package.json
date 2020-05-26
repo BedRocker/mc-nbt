@@ -1,11 +1,11 @@
 {
   "name": "mc-nbt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A parser specifically for Minecraft files, with built-in ZLib de-compression.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "build": "tsc",
     "lint": "tslint -p tsconfig.json",
     "postversion": "git push && git push --tags",
