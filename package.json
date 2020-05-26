@@ -2,9 +2,27 @@
   "name": "mc-nbt",
   "version": "0.0.1",
   "description": "A parser specifically for Minecraft files, with built-in ZLib de-compression.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json",
+    "postversion": "git push && git push --tags",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "test": "jest --config jestconfig.json",
+    "version": "npm run format && git add -A src"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.0.0",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.3"
   },
   "repository": {
     "type": "git",
@@ -20,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/BedRocker/mc-nbt/issues"
   },
-  "homepage": "https://github.com/BedRocker/mc-nbt#readme"
+  "homepage": "https://github.com/BedRocker/mc-nbt#readme",
+  "files": [
+    "lib/**/*"
+  ]
 }
