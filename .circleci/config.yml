@@ -1,26 +1,57 @@
 version: 2
 
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10
+
 jobs:
   build:
-    parallelism: 1
-    docker:
-      - image: circleci/node:10
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          keys: 
+          - dependency-cache-{{ checksum "package.json" }}
+          - dependency-cache
       - run: npm i
+      - run: 
+          name: Run Tests
+          command: npm test
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: npm test
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
 
 workflows:
   version: 2
   build-deploy:
     jobs:
       - build:
-          filters:
-            branches:
-              only: master
+        filters:
+          tags:
+            only: /^[0-9]+(\.[0-9]+)(\.[0-9]+)*$/
+          branches: 
+            ignore: /.*/
+      - deploy:
+        requires:
+          - build-tag
+        filters:
+          tags:
+            only: /^[0-9]+(\.[0-9]+)(\.[0-9]+)*$/
+          branches: 
+            ignore: /.*/
