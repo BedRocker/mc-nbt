@@ -1,3 +1,4 @@
+export {};
 const nbt = require('../index');
 
 interface NBTSampleData {

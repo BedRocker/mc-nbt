@@ -1,3 +1,4 @@
+export {};
 const fs = require('fs');
 const nbt = require('../index');
 
