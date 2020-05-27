@@ -1,12 +1,13 @@
+// tslint:disable:no-var-requires
 const fs = require('fs')
 const nbt = require('../src/index')
 
-fs.readFile('bigtest.nbt.gz', function (error: any, data: any) {
+fs.readFile('bigtest.nbt.gz', (error: any, data: any) => {
   if (error) {
     throw error
   }
 
-  nbt.parse(data, function (err: any, result: any) {
+  nbt.parse(data, (err: any, result: any) => {
     // tslint:disable:no-console
     console.log(err)
     console.log(result.value.stringTest)
