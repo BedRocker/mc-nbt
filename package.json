@@ -1,8 +1,8 @@
 {
-  "name": "@codetheorist/mc-nbt",
+  "name": "@bedrocker/mc-nbt",
   "version": "0.1.4",
   "private": false,
-  "description": "A parser specifically for Minecraft files, with built-in ZLib de-compression.",
+  "description": "A named binary tag parser specifically for Minecraft files, with built-in ZLib de-compression.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
