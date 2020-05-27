@@ -1,18 +1,18 @@
 # Minecraft NBT Parser
 ## Built with TypeScript
-[![NPM version](https://img.shields.io/npm/v/@bedrocker/mc-nbt)](http://npmjs.com/package/prismarine-nbt)
+[![NPM version](https://img.shields.io/npm/v/@bedrocker/mc-nbt)](http://npmjs.com/package/@bedrocker/mc-nbt)
 [![Build Status](https://img.shields.io/circleci/project/BedRocker/mc-nbt/master)](https://circleci.com/gh/BedRocker/mc-nbt)
 
 MC-NBT is a TypeScript parser and serializer for [NBT](http://wiki.vg/NBT) archives, for use with [Node.js](http://nodejs.org/).
 
 ### Installation
-To install into your project, simply run `npm install --save @codetheorist/mc-nbt` in the root of your project.
+To install into your project, simply run `npm install --save @bedrocker/mc-nbt` in the root of your project.
 
 ### Usage
 To read NBT headers from a file, the following code snippet should get you going:
 
 ```
-const NBT = require('@codetheorist/mc-nbt')
+const NBT = require('@bedrocker/mc-nbt')
 const fs = require('fs')
 
 fs.readFile('data.nbt', (error, data) => {
