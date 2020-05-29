@@ -1,6 +1,6 @@
 // tslint:disable:no-var-requires
 const zlib = require('zlib');
-const { resolve } = require("path");
+const { resolve } = require('path');
 const { ProtoDefCompiler } = require('protodef').Compiler;
 
 const nbtJson = JSON.stringify(require(resolve(__dirname, './compiler.types.json')));

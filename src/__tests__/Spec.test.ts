@@ -1,6 +1,6 @@
 export {};
 const fs = require('fs');
-const { resolve } = require("path");
+const { resolve } = require('path');
 const nbt = require(resolve(__dirname, '../index'));
 
 describe('nbt.parse', () => {
