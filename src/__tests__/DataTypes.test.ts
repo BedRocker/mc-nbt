@@ -1,5 +1,6 @@
 export {};
-const nbt = require('../index');
+const { resolve } = require("path");
+const nbt = require(resolve(__dirname, '../index'));
 
 interface NBTSampleData {
   type: string;

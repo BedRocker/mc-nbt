@@ -1,6 +1,6 @@
 // tslint:disable:no-var-requires
 const fs = require('fs');
-const nbt = require('../src/index');
+const nbt = require(resolve(__dirname, '../src/index'));
 
 fs.readFile('bigtest.nbt.gz', (error: any, data: any) => {
   if (error) {
