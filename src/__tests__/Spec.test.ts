@@ -1,6 +1,7 @@
 export {};
 const fs = require('fs');
-const nbt = require('../index');
+const { resolve } = require("path");
+const nbt = require(resolve(__dirname, '../index'));
 
 describe('nbt.parse', () => {
   const checkBigtest = (data: any) => {
@@ -60,13 +61,13 @@ describe('nbt.write', () => {
       if (err) {
         throw err;
       }
-      expect(nbt.writeUncompressed(require('../data/bigtest'))).toStrictEqual(nbtdata);
+      expect(nbt.writeUncompressed(require(resolve(__dirname, '../data/bigtest')))).toStrictEqual(nbtdata);
       done();
     });
   });
 
   it('re-encodes it input perfectly', function () {
-    const input = require('../data/bigtest');
+    const input = require(resolve(__dirname, '../data/bigtest'));
     const output = nbt.writeUncompressed(input);
     const decodedOutput = nbt.parseUncompressed(output);
     expect(decodedOutput).toStrictEqual(input);

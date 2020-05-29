@@ -1,7 +1,7 @@
 export {};
 // tslint:disable:no-var-requires
 const fs = require('fs');
-const nbt = require('../../index');
+const nbt = require(resolve(__dirname, '../../index'));
 
 fs.readFile('level.dat', (error: any, data: any) => {
   if (error) {
