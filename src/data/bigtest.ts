@@ -4,26 +4,23 @@ module.exports = {
   value: {
     longTest: {
       type: 'long',
-      value: [
-        2147483647,
-        -1
-      ]
+      value: [2147483647, -1],
     },
     shortTest: {
       type: 'short',
-      value: 32767
+      value: 32767,
     },
     stringTest: {
       type: 'string',
-      value: 'HELLO WORLD THIS IS A TEST STRING ÅÄÖ!'
+      value: 'HELLO WORLD THIS IS A TEST STRING ÅÄÖ!',
     },
     floatTest: {
       type: 'float',
-      value: 0.4982314705848694
+      value: 0.4982314705848694,
     },
     intTest: {
       type: 'int',
-      value: 2147483647
+      value: 2147483647,
     },
     'nested compound test': {
       type: 'compound',
@@ -33,56 +30,41 @@ module.exports = {
           value: {
             name: {
               type: 'string',
-              value: 'Hampus'
+              value: 'Hampus',
             },
             value: {
               type: 'float',
-              value: 0.75
-            }
-          }
+              value: 0.75,
+            },
+          },
         },
         egg: {
           type: 'compound',
           value: {
             name: {
               type: 'string',
-              value: 'Eggbert'
+              value: 'Eggbert',
             },
             value: {
               type: 'float',
-              value: 0.5
-            }
-          }
-        }
-      }
+              value: 0.5,
+            },
+          },
+        },
+      },
     },
     'listTest (long)': {
       type: 'list',
       value: {
         type: 'long',
         value: [
-          [
-            0,
-            11
-          ],
-          [
-            0,
-            12
-          ],
-          [
-            0,
-            13
-          ],
-          [
-            0,
-            14
-          ],
-          [
-            0,
-            15
-          ]
-        ]
-      }
+          [0, 11],
+          [0, 12],
+          [0, 13],
+          [0, 14],
+          [0, 15],
+        ],
+      },
     },
     'listTest (compound)': {
       type: 'list',
@@ -92,35 +74,29 @@ module.exports = {
           {
             name: {
               type: 'string',
-              value: 'Compound tag #0'
+              value: 'Compound tag #0',
             },
             'created-on': {
               type: 'long',
-              value: [
-                294,
-                1379390861
-              ]
-            }
+              value: [294, 1379390861],
+            },
           },
           {
             name: {
               type: 'string',
-              value: 'Compound tag #1'
+              value: 'Compound tag #1',
             },
             'created-on': {
               type: 'long',
-              value: [
-                294,
-                1379390861
-              ]
-            }
-          }
-        ]
-      }
+              value: [294, 1379390861],
+            },
+          },
+        ],
+      },
     },
     byteTest: {
       type: 'byte',
-      value: 127
+      value: 127,
     },
     'byteArrayTest (the first 1000 values of (n*n*255+n*7)%100, starting with n=0 (0, 62, 34, 16, 8, ...))': {
       type: 'byteArray',
@@ -1124,12 +1100,12 @@ module.exports = {
         52,
         74,
         6,
-        48
-      ]
+        48,
+      ],
     },
     doubleTest: {
       type: 'double',
-      value: 0.4931287132182315
-    }
-  }
-}
+      value: 0.4931287132182315,
+    },
+  },
+};

@@ -1,3 +1,4 @@
+export {};
 // tslint:disable:no-var-requires
 const fs = require('fs');
 const nbt = require(resolve(__dirname, '../src/index'));
