@@ -5,8 +5,9 @@
     "module": "commonjs",
     "declaration": true,
     "outDir": "./lib",
+    "resolveJsonModule": true,
     "strict": true
   },
-  "include": ["src"],
+ "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
