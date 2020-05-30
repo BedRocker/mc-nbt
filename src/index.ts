@@ -1,9 +1,11 @@
 // tslint:disable:no-var-requires
+
 const zlib = require('zlib');
 const { resolve } = require("path");
 const { ProtoDefCompiler } = require('protodef').Compiler;
-
-const nbtJson = JSON.stringify(require(resolve(__dirname, './compiler.types.json')));
+import * as config from "./compiler.types.json";
+// const config = () => import(resolve(__dirname, './compiler.types.json'));
+const nbtJson = JSON.stringify(config);
 const leNbtJson = nbtJson.replace(/(i[0-9]+)/g, 'l$1');
 
 function createProto(le: any) {
